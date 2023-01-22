@@ -1,0 +1,48 @@
+{
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": false,
+    "source.organizeImports": true,
+    // "source.fixAll.eslint": true,
+    // "source.fixAll.tslint": true,
+    "source.fixAll": true
+  },
+
+  "eslint.validate": [
+    // "javascript", "typescript", "javascriptreact", "typescriptreact"
+  ],
+  "prettier.enable": true,
+  "[javascript]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.endWithNewline": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.templating": true,
+  "tailwindCSS.rootFontSize": 10,
+  "tailwindCSS.files.exclude": ["**/.git/**", "**/node_modules/**", "**/.hg/**", "**/.next/**"],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "classNameVar", "classNameMap"],
+  "scss.format.spaceAroundSelectorSeparator": true,
+  "scss.format.enable": true,
+  "scss.format.braceStyle": "collapse",
+  "scss.completion.completePropertyWithSemicolon": true
+}

@@ -1,0 +1,49 @@
+---
+root: true
+env:
+  browser: true
+  es2022: true
+  node: true
+ignorePatterns:
+  - /*.js
+extends:
+  - eslint:recommended
+  - next/core-web-vitals
+  - standard-with-typescript
+  - eslint-config-prettier
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: './tsconfig.json'
+rules:
+  '@typescript-eslint/no-unnecessary-condition': error
+  '@typescript-eslint/restrict-template-expressions':
+    - error
+    - allowNumber: true
+      allowBoolean: true
+      allowAny: true
+      allowNullish: false
+      allowRegExp: true
+
+  semi: off
+  comma-dangle: off
+  space-before-function-paren: off
+  no-case-declarations: off
+  indent: off
+  multiline-ternary: off
+  react/display-name: off
+  '@typescript-eslint/space-before-function-paren': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/semi': off
+  '@typescript-eslint/member-delimiter-style': off
+  '@typescript-eslint/consistent-type-definitions': off
+  '@typescript-eslint/array-type': off
+  '@typescript-eslint/prefer-optional-chain': off
+  '@typescript-eslint/no-floating-promises': off
+  '@typescript-eslint/indent': off
+  '@typescript-eslint/no-misused-promises': off
+  '@typescript-eslint/no-non-null-assertion': off
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - varsIgnorePattern: '_.*'
+      args: none
+  '@next/next/no-img-element': off
