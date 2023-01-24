@@ -46,4 +46,3 @@ rules:
     - error
     - varsIgnorePattern: '_.*'
       args: none
-  '@next/next/no-img-element': off

@@ -8,8 +8,10 @@
     "build": "yarn build:css && next build && next export",
     "build:css": "NODE_ENV=production tailwindcss -o out/tailwind.css -m",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write --loglevel silent src",
+    "lint:prettier": "prettier --check src",
+    "lint:eslint": "next lint",
+    "format:prettier": "prettier --write --loglevel silent src",
+    "format:eslint": "next lint --fix",
     "typecheck": "tsc --noEmit",
     "organize": "yarn format && yarn lint --fix && yarn typecheck"
   },

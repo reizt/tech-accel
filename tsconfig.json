@@ -27,16 +27,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": false,
     "noUncheckedIndexedAccess": true,
-    "allowSyntheticDefaultImports": true,
     "allowUmdGlobalAccess": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "exactOptionalPropertyTypes": false,
     "keyofStringsOnly": true,
-    "noPropertyAccessFromIndexSignature": false,
     "noStrictGenericChecks": false,
-    "noUnusedLocals": true,
-    "noImplicitOverride": false, // tmp
-    "noUnusedParameters": false
+    "noUnusedLocals": true
   }
 }
