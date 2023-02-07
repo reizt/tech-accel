@@ -23,7 +23,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "strict": true,
-    "importsNotUsedAsValues": "preserve",
+    "importsNotUsedAsValues": "error",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": false,
     "noUncheckedIndexedAccess": true,
