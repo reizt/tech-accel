@@ -1,20 +1,37 @@
 {
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./",
+    "paths": {
+      "#/*": ["src/*"],
+      "*": ["node_modules/*"]
+    },
+    "outDir": ".next",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "strict": true,
+    "importsNotUsedAsValues": "error",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "noUncheckedIndexedAccess": true,
+    "allowUmdGlobalAccess": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "keyofStringsOnly": true,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": true
+  }
 }
