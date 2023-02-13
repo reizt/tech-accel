@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 6001",
     "dev:https": "HTTPS=true PORT=4300 node ./server.js",
     "build": "yarn build:css && next build && next export",
     "build:css": "NODE_ENV=production tailwindcss -o out/tailwind.css -m",
