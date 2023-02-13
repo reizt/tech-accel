@@ -7,11 +7,14 @@ env:
 ignorePatterns:
   - /*.js
   - vitest.config.ts
+plugins:
+  - storybook
 extends:
   - eslint:recommended
   - next/core-web-vitals
   - standard-with-typescript
   - eslint-config-prettier
+  - plugin:storybook/recommended
 parser: '@typescript-eslint/parser'
 parserOptions:
   project: './tsconfig.json'
