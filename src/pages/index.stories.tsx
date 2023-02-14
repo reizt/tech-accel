@@ -1,12 +1,8 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta } from '@storybook/react';
 import Home from '.';
 
-const meta: ComponentMeta<typeof Home> = {
-  title: 'Page/Home',
+export default {
   component: Home,
-};
-export default meta;
+} as ComponentMeta<typeof Home>;
 
-const Template: ComponentStory<typeof Home> = (args) => <Home {...args} />;
-
-export const Default = Template.bind({});
+export const Default = {};
