@@ -6,6 +6,7 @@ env:
   node: true
 ignorePatterns:
   - /*.js
+  - vitest.config.ts
 extends:
   - eslint:recommended
   - next/core-web-vitals
