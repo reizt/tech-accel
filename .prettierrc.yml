@@ -9,7 +9,6 @@ bracketSameLine: false
 singleQuote: true
 arrowParens: always
 cursorOffset: -1
-editorconfig: false
 embeddedLanguageFormatting: auto
 endOfLine: lf
 htmlWhitespaceSensitivity: css
