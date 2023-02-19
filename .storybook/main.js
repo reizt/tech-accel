@@ -1,5 +1,4 @@
-const path = require('path');
-const tsconfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
+const { resolve } = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -22,8 +21,10 @@ module.exports = {
   },
   staticDirs: ['../public'],
   webpackFinal(config) {
-    config.resolve.modules = [...(config.resolve.modules || []), path.resolve(__dirname, '../src')];
-    config.resolve.plugins = [...(config.resolve.plugins || []), new tsconfigPathsWebpackPlugin()];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '#': resolve(__dirname, '../src'),
+    };
     return config;
   },
 };
