@@ -8,7 +8,7 @@ const keysToObj = (keys, keyToValue) => {
 };
 
 // 昇順で入れて管理する
-const pxs = [40];
+const pxs = [16, 20, 40, 160];
 const PX_PER_REM = 10;
 const remsMap = keysToObj(pxs, (px) => `${px / PX_PER_REM}rem`); // e.g. {1: '1rem', 2: '2rem'}
 
@@ -19,6 +19,12 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
+      white: {
+        DEFAULT: '#ffffff',
+      },
+      black: {
+        DEFAULT: '#000000',
+      },
       green: '#00db00',
     },
     spacing: { ...remsMap, ...screenMap, auto: 'auto' },
