@@ -7,11 +7,16 @@ env:
 ignorePatterns:
   - /*.js
   - vitest.config.ts
+plugins:
+  - storybook
+  - tailwindcss
 extends:
   - eslint:recommended
   - next/core-web-vitals
   - standard-with-typescript
   - eslint-config-prettier
+  - plugin:storybook/recommended
+  - plugin:tailwindcss/recommended
 parser: '@typescript-eslint/parser'
 parserOptions:
   project: './tsconfig.json'
@@ -26,10 +31,8 @@ rules:
       allowRegExp: true
 
   semi: off
-  comma-dangle: off
-  space-before-function-paren: off
-  no-case-declarations: off
-  indent: off
-  multiline-ternary: off
   react/display-name: off
+  import/no-anonymous-default-export: off
   '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/consistent-type-assertions': off
+  '@typescript-eslint/consistent-type-definitions': off
