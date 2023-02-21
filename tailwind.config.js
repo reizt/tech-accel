@@ -34,6 +34,9 @@ module.exports = {
     fontSize: { ...remsMap },
     borderRadius: { ...remsMap, full: '100%' },
     extend: {
+      boxShadow: {
+        'login-button': '0 0.25rem 0.25rem #00000040',
+      },
       maxWidth: { ...remsMap, ...screenMap },
       maxHeight: { ...remsMap, ...screenMap },
       minWidth: { ...remsMap, ...screenMap },
