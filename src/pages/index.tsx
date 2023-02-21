@@ -1,4 +1,3 @@
-import { SampleButton } from '#/components/SampleButton';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -19,7 +18,6 @@ const Home: NextPage = () => {
           </a>
         </h1>
         <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        <SampleButton color="colored">Sample Button</SampleButton>
       </main>
     </div>
   );
