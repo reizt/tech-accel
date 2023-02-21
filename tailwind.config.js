@@ -33,6 +33,9 @@ module.exports = {
     spacing: { ...remsMap, ...screenMap, auto: 'auto' },
     fontSize: { ...remsMap },
     borderRadius: { ...remsMap, full: '100%' },
+    fontFamily: {
+      mp1: ['var(--font-mp1)'],
+    },
     extend: {
       maxWidth: { ...remsMap, ...screenMap },
       maxHeight: { ...remsMap, ...screenMap },
