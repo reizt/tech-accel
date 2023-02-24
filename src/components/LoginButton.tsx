@@ -1,7 +1,11 @@
-import type { FC } from 'react';
+import type { ButtonHTMLAttributes, FC } from 'react';
 
-type Props = {};
+type Props = {} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const LoginButton: FC<Props> = () => {
-  return <button className="h-48 min-w-320 rounded-32 bg-green-spotify text-16 font-normal text-white">ログイン</button>;
+export const LoginButton: FC<Props> = ({ className = '', ...restProps }) => {
+  return (
+    <button className={`h-48 min-w-320 rounded-32 bg-green-spotify text-16 font-normal text-white ${className}`} {...restProps}>
+      ログイン
+    </button>
+  );
 };
