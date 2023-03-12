@@ -15,7 +15,7 @@ export const MeasurementStatus: FC<Props> = ({ status, accelerationList }) => {
           {
             initial: Array(10).fill(0.2),
             progress: accelerationList ?? Array(10).fill(0),
-            completed: Array(10).fill(1),
+            completed: accelerationList ?? Array(10).fill(0),
           }[status]
         }
       />
