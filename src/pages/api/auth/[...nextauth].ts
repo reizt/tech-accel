@@ -1,7 +1,7 @@
 import NextAuth, { Session } from 'next-auth';
+import type { JWT } from 'next-auth/jwt';
 import SpotifyProvider from 'next-auth/providers/spotify';
 import SpotifyWebApi from 'spotify-web-api-node';
-import type { JWT } from 'next-auth/jwt';
 
 declare module 'next-auth/jwt' {
   interface JWT {
@@ -26,8 +26,8 @@ declare module 'next-auth' {
 }
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.NEXT_PUBLIC_CLIENT_ID as string,
-  clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET as string,
+  clientId: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID as string,
+  clientSecret: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET as string,
 });
 
 const refreshAccessToken = async (token: JWT) => {
@@ -75,11 +75,11 @@ export default NextAuth({
         };
       }
 
-      if (Date.now() < token.accessTokenExpires) {
-        return token;
+      if (Date.now() >= token.accessTokenExpires) {
+        return await refreshAccessToken(token);
       }
 
-      return await refreshAccessToken(token);
+      return token;
     },
 
     async session({ session, token }): Promise<Session> {
