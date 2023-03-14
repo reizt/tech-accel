@@ -1,4 +1,5 @@
 import { Dosis, M_PLUS_1 } from '@next/font/google';
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
 
@@ -20,10 +21,12 @@ const dosisRegular = Dosis({
   variable: '--font-dosis',
 });
 
-export default function ({ Component, pageProps }: AppProps) {
+export default function ({ Component, pageProps: { session, ...rest } }: AppProps) {
   return (
-    <div className={`${mp1Regular.variable} ${dosisRegular.variable} font-mp1`}>
-      <Component {...pageProps} />
-    </div>
+    <SessionProvider session={session}>
+      <div className={`${mp1Regular.variable} ${dosisRegular.variable} font-mp1`}>
+        <Component {...rest} />
+      </div>
+    </SessionProvider>
   );
 }
