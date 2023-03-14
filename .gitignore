@@ -40,3 +40,6 @@ tmp
 .idea
 
 storybook-static
+
+# 環境変数用
+.env
