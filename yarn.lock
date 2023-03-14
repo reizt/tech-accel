@@ -11618,6 +11618,11 @@ split@0.3:
   dependencies:
     through "2"
 
+spotify-types@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/spotify-types/-/spotify-types-1.0.7.tgz#59c2e16da2ae18b8adb97e07a9e378d8567f4464"
+  integrity sha512-X2n0MYNUpgakGDU7h/vzTvqVJh2f8kAWE9SG5TkJtf3lJcorndK24/8/6+D7Uww8tqUD1VPHg5Lqv4usdVJUvg==
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
