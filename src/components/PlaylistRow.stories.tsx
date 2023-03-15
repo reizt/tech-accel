@@ -9,8 +9,8 @@ export const NotPlayingNow: ComponentStoryObj<typeof PlaylistRow> = {
   args: {
     serialNumber: 1,
     song: {
-      name: '秒針を噛む',
-      artistName: 'ずっと真夜中でいいのに',
+      name: '秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む秒針を噛む',
+      artistName: 'ずっと真夜中でいいのにずっと真夜中でいいのにずっと真夜中でいいのにずっと真夜中でいいのにずっと真夜中でいいのに',
       seconds: 259,
     },
     style: {
@@ -23,5 +23,15 @@ export const PlayingNow: ComponentStoryObj<typeof PlaylistRow> = {
   args: {
     ...NotPlayingNow.args,
     playingNow: true,
+  },
+};
+
+export const Wide: ComponentStoryObj<typeof PlaylistRow> = {
+  args: {
+    ...NotPlayingNow.args,
+    playingNow: true,
+    style: {
+      width: '40rem',
+    },
   },
 };
