@@ -8,7 +8,7 @@ const keysToObj = (keys, keyToValue) => {
 };
 
 // 昇順で入れて管理する
-const pxs = [8, 16, 32, 40, 48, 64, 96, 128, 136, 216, 320];
+const pxs = [6, 8, 16, 32, 40, 48, 64, 76, 96, 128, 136, 216, 320];
 const PX_PER_REM = 16;
 const remsMap = keysToObj(pxs, (px) => `${px / PX_PER_REM}rem`); // e.g. {1: '1rem', 2: '2rem'}
 
@@ -21,9 +21,11 @@ module.exports = {
     colors: {
       white: {
         DEFAULT: '#ffffff',
+        600: '#b5bcc7',
       },
       black: {
         DEFAULT: '#000000',
+        700: '#8a817c',
       },
       green: {
         DEFAULT: '#00db00',
@@ -35,6 +37,7 @@ module.exports = {
     borderRadius: { ...remsMap, full: '100%' },
     fontFamily: {
       mp1: ['var(--font-mp1)'],
+      dosis: ['var(--font-dosis)'],
     },
     extend: {
       maxWidth: { ...remsMap, ...screenMap },
