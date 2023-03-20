@@ -1,4 +1,4 @@
-import { formatSeconds } from '#/utils/format-seconds';
+import { formatSeconds } from '#/features/time/format-seconds';
 import type { ButtonHTMLAttributes, FC } from 'react';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
