@@ -7,10 +7,12 @@ const keysToObj = (keys, keyToValue) => {
   return obj;
 };
 
+const pxsToRemsMap = (pxs) => keysToObj(pxs, (px) => `${px / PX_PER_REM}rem`); // e.g. {1: '1rem', 2: '2rem'}
+
 // 昇順で入れて管理する
-const pxs = [6, 8, 16, 32, 40, 48, 64, 76, 96, 128, 136, 216, 320];
+const pxs = [6, 8, 16, 32, 40, 48, 64, 76, 96, 128, 136, 144, 216, 240, 320];
 const PX_PER_REM = 16;
-const remsMap = keysToObj(pxs, (px) => `${px / PX_PER_REM}rem`); // e.g. {1: '1rem', 2: '2rem'}
+const remsMap = pxsToRemsMap(pxs);
 
 const screenMap = { 'screen-x': '100vw', 'screen-y': '100vh' };
 
@@ -43,6 +45,10 @@ module.exports = {
     fontFamily: {
       mp1: ['var(--font-mp1)'],
       dosis: ['var(--font-dosis)'],
+    },
+    borderWidth: pxsToRemsMap([2]),
+    boxShadow: {
+      'measure-button': '0 0.25rem 0.25rem #00000040',
     },
     extend: {
       maxWidth: { ...remsMap, ...screenMap },
