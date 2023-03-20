@@ -21,6 +21,7 @@ module.exports = {
     colors: {
       white: {
         DEFAULT: '#ffffff',
+        300: '#eff2f5',
         600: '#b5bcc7',
       },
       black: {
@@ -31,10 +32,14 @@ module.exports = {
         DEFAULT: '#00db00',
         spotify: '#1db954',
       },
+      blue: {
+        700: '#627294',
+      },
     },
     spacing: { ...remsMap, ...screenMap, auto: 'auto' },
     fontSize: { ...remsMap },
     borderRadius: { ...remsMap, full: '100%' },
+    borderWidth: keysToObj([1], (x) => x),
     fontFamily: {
       mp1: ['var(--font-mp1)'],
       dosis: ['var(--font-dosis)'],
@@ -44,6 +49,9 @@ module.exports = {
       maxHeight: { ...remsMap, ...screenMap },
       minWidth: { ...remsMap, ...screenMap },
       minHeight: { ...remsMap, ...screenMap },
+      boxShadow: {
+        'play-button': '0 0.125rem 0.3125rem #00000040',
+      },
     },
   },
   plugins: [],
