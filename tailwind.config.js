@@ -57,6 +57,7 @@ module.exports = {
       maxHeight: { ...remsMap, ...screenMap },
       minWidth: { ...remsMap, ...screenMap },
       minHeight: { ...remsMap, ...screenMap },
+      letterSpacing: keysToObj([0.02, 0.038], (x) => x),
       boxShadow: {
         'play-button': '0 0.125rem 0.3125rem #00000040',
       },
