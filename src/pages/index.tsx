@@ -2,6 +2,7 @@ import { LoginButton } from '#/components/LoginButton';
 import { MeasureButton } from '#/components/MeasureButton';
 import { MeasurementStatus } from '#/components/MeasurementStatus';
 import type { NextPage } from 'next';
+import { getProviders, signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 declare const DeviceMotionEvent: {
@@ -21,6 +22,13 @@ const Home: NextPage = () => {
     status: 'initial',
     accelerationSeries: Array(10).fill(0),
   });
+
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    // FIXME: 最終的に消す
+    console.log('session', session);
+  }, [session]);
 
   const startMeasurement = () => {
     deviceMotionAllowed()
@@ -73,9 +81,20 @@ const Home: NextPage = () => {
           }
         }}
       />
-      <LoginButton />
+      <LoginButton
+        onClick={() => {
+          signIn('spotify').catch((err) => console.error(err));
+        }}
+      />
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const providers = await getProviders();
+  return {
+    props: { providers },
+  };
+}
 
 export default Home;

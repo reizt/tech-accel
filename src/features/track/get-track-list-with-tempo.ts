@@ -9,7 +9,7 @@ type Props = {
   token: string;
 };
 
-type TrackListWitTempo = Array<SavedTrack & { tempo: number | undefined }> | undefined;
+type TrackListWitTempo = (SavedTrack & { tempo: number | undefined })[] | undefined;
 
 export const getTrackListWithTempo = async ({ token }: Props): Promise<TrackListWitTempo> => {
   const userTrackList = await fetchUserTrackList({ token, limit: LIMIT, offset: OFFSET });

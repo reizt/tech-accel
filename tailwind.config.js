@@ -43,12 +43,11 @@ module.exports = {
     spacing: { ...remsMap, ...screenMap, auto: 'auto' },
     fontSize: { ...remsMap },
     borderRadius: { ...remsMap, full: '100%' },
-    borderWidth: keysToObj([1], (x) => x),
+    borderWidth: keysToObj([1, 2], (x) => x),
     fontFamily: {
       mp1: ['var(--font-mp1)'],
       dosis: ['var(--font-dosis)'],
     },
-    borderWidth: pxsToRemsMap([2]),
     boxShadow: {
       'measure-button': '0 0.25rem 0.25rem #00000040',
     },
