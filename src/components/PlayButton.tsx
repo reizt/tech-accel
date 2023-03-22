@@ -11,12 +11,12 @@ export const PlayButton: FC<Props> = ({ playing, className = '', ...restProps })
       {...restProps}
     >
       {playing ? (
-        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0V20L15.7143 10L0 0Z" fill="#627294" />
-        </svg>
-      ) : (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 0H18V18H0V0Z" fill="#627294" />
+        </svg>
+      ) : (
+        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0V20L15.7143 10L0 0Z" fill="#627294" />
         </svg>
       )}
     </button>
