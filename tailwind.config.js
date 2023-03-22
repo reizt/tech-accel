@@ -10,7 +10,7 @@ const keysToObj = (keys, keyToValue) => {
 const pxsToRemsMap = (pxs) => keysToObj(pxs, (px) => `${px / PX_PER_REM}rem`); // e.g. {1: '1rem', 2: '2rem'}
 
 // 昇順で入れて管理する
-const pxs = [0, 6, 8, 12, 16, 18, 24, 32, 36, 40, 48, 64, 76, 78, 96, 128, 136, 144, 174, 216, 240, 320, 700];
+const pxs = [0, 6, 8, 12, 16, 18, 24, 32, 36, 40, 48, 56, 64, 76, 78, 96, 112, 128, 136, 144, 216, 240, 320, 700];
 const PX_PER_REM = 16;
 const remsMap = pxsToRemsMap(pxs);
 

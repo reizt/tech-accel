@@ -5,4 +5,8 @@ export default {
   component: LoginButton,
 } as ComponentMeta<typeof LoginButton>;
 
-export const Default: ComponentStoryObj<typeof LoginButton> = {};
+export const Default: ComponentStoryObj<typeof LoginButton> = {
+  args: {
+    className: 'w-320',
+  },
+};
