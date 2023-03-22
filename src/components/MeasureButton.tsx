@@ -9,7 +9,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const MeasureButton: FC<Props> = ({ measuring, leftSeconds = 0, className = '', ...restProps }) => {
   return (
     <button
-      className={`relative flex h-240 w-240 items-center justify-center rounded-full border-2 border-white bg-white-300 shadow-measure-button ${className}`}
+      className={`relative flex h-240 w-240 shrink-0 items-center justify-center rounded-full border-2 border-white bg-white-300 shadow-measure-button ${className}`}
       {...restProps}
     >
       {measuring ? (
