@@ -1,14 +1,16 @@
 import { formatSeconds } from '#/features/time/format-seconds';
 import type { ButtonHTMLAttributes, FC } from 'react';
 
+export type PlaylistRowSong = {
+  name: string;
+  artistName: string;
+  seconds: number;
+};
+
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   playingNow: boolean;
   serialNumber: number;
-  song: {
-    name: string;
-    artistName: string;
-    seconds: number;
-  };
+  song: PlaylistRowSong;
 };
 
 export const PlaylistRow: FC<Props> = ({ playingNow, serialNumber, song, className = '', ...restProps }) => {
