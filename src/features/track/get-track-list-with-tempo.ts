@@ -9,12 +9,16 @@ type Props = {
   token: string;
 };
 
-type TrackListWitTempo = (SavedTrack & { tempo: number | undefined })[] | undefined;
+type TrackListWitTempo = (SavedTrack & { tempo: number | undefined })[];
 
 export const getTrackListWithTempo = async ({ token }: Props): Promise<TrackListWitTempo> => {
   const userTrackList = await fetchUserTrackList({ token, limit: LIMIT, offset: OFFSET });
   if (userTrackList === undefined) {
-    return undefined;
+    throw new Error('user track list empty');
+  }
+
+  if (userTrackList.length === 0) {
+    return [];
   }
 
   const trackListTempo = await fetchTrackListTempo({
@@ -22,7 +26,10 @@ export const getTrackListWithTempo = async ({ token }: Props): Promise<TrackList
     ids: userTrackList.map((userTrack) => userTrack.track.id),
   });
   if (trackListTempo === undefined) {
-    return undefined;
+    throw new Error('track list tempo empty');
+  }
+  if (trackListTempo.length === 0) {
+    return [];
   }
 
   return userTrackList
