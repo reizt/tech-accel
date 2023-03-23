@@ -5,7 +5,7 @@ export const useOnLogin = (callback: () => void) => {
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (session !== null) {
+    if (session?.user.accessToken != null) {
       callback();
     }
   }, [session, callback]);
