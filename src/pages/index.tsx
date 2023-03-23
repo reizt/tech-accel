@@ -2,7 +2,7 @@ import { BpmCounter } from '#/components/BpmCounter';
 import { MeasureButton } from '#/components/MeasureButton';
 import { MeasurementStatus } from '#/components/MeasurementStatus';
 import type { NextPage } from 'next';
-import { getProviders, useSession } from 'next-auth/react';
+import { getProviders } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,18 @@ declare const DeviceMotionEvent: {
 };
 
 type Status = 'initial' | 'progress' | 'completed';
+type AccTransition = 'stopped' | 'increasing' | 'decreasing';
+type State = {
+  status: Status;
+  accelerationSeries: number[];
+  totalSteps: number;
+  averageStepDuration: number;
+  accTransition: AccTransition;
+  lastSteppedAt?: number;
+};
+
+const ACC_BORDER_BOTTOM = 3;
+const ACC_BORDER_TOP = 9;
 
 // 3軸合成値
 const combinedAcceleration = (acceleration: Required<DeviceMotionEvent['acceleration']>) => {
@@ -19,18 +31,15 @@ const combinedAcceleration = (acceleration: Required<DeviceMotionEvent['accelera
 };
 
 const Home: NextPage = () => {
-  const [s, setS] = useState<{ status: Status; accelerationSeries: number[] }>({
+  const [s, setS] = useState<State>({
     status: 'initial',
     accelerationSeries: Array(10).fill(0),
+    totalSteps: 0,
+    averageStepDuration: 0,
+    accTransition: 'stopped',
   });
 
-  const { data: session } = useSession();
   const [bpm, setBpm] = useState<number>(100);
-
-  useEffect(() => {
-    // FIXME: 最終的に消す
-    console.log('session', session);
-  }, [session]);
 
   const startMeasurement = () => {
     deviceMotionAllowed()
@@ -48,6 +57,8 @@ const Home: NextPage = () => {
 
   const endMeasurement = () => {
     setS((prev) => ({ ...prev, status: 'completed' }));
+    // ms/歩 -> 歩/min
+    setBpm(Math.floor((60 * 1000) / s.averageStepDuration));
   };
 
   const deviceMotionAllowed = async () => {
@@ -59,10 +70,32 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const handler = (e: DeviceMotionEvent) => {
-      setS(({ status, accelerationSeries: prev }) => {
-        if (status !== 'progress') return { status, accelerationSeries: prev };
-        const a = combinedAcceleration(e.acceleration);
-        return { status, accelerationSeries: [a, ...prev].slice(0, 10) };
+      setS(({ status, accelerationSeries: prevSeries, totalSteps, averageStepDuration, accTransition, lastSteppedAt }) => {
+        if (status !== 'progress') {
+          return { status, accelerationSeries: prevSeries, totalSteps, averageStepDuration, accTransition };
+        }
+
+        const newAcc = combinedAcceleration(e.acceleration);
+        const lastAcc = prevSeries[0] as number;
+
+        const goThroughTop = lastAcc <= ACC_BORDER_TOP && newAcc > ACC_BORDER_TOP;
+        const goThroughBottom = lastAcc > ACC_BORDER_BOTTOM && newAcc <= ACC_BORDER_BOTTOM;
+
+        const stepDetected = (goThroughTop && accTransition === 'increasing') || (goThroughBottom && accTransition === 'decreasing');
+
+        const now = new Date().getTime();
+
+        return {
+          status,
+          accelerationSeries: [newAcc, ...prevSeries].slice(0, 10),
+          totalSteps: stepDetected ? totalSteps + 1 : totalSteps,
+          averageStepDuration:
+            lastSteppedAt !== undefined && stepDetected
+              ? (averageStepDuration * totalSteps + (now - lastSteppedAt)) / (totalSteps + 1)
+              : averageStepDuration,
+          accTransition: goThroughTop ? 'decreasing' : goThroughBottom ? 'increasing' : accTransition,
+          lastSteppedAt: stepDetected ? now : lastSteppedAt,
+        };
       });
     };
     window.addEventListener('devicemotion', handler);
