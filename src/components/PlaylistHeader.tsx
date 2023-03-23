@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 type Props = {
-  bpm: number;
+  bpm?: number;
   onClose: () => void;
   className?: string;
 };
@@ -15,10 +15,12 @@ export const PlaylistHeader: FC<Props> = ({ bpm, onClose, className = '' }) => {
         </svg>
       </button>
       <div className="grow pt-16 text-white">
-        <div className="flex w-64 flex-col items-center text-center font-bold">
-          <span className="text-24 leading-none tracking-0.02">BPM</span>
-          <span className="font-dosis text-48 leading-none tracking-0.038">{bpm}</span>
-        </div>
+        {bpm != null && (
+          <div className="flex w-64 flex-col items-center text-center font-bold">
+            <span className="text-24 leading-none tracking-0.02">BPM</span>
+            <span className="font-dosis text-48 leading-none tracking-0.038">{bpm}</span>
+          </div>
+        )}
       </div>
     </header>
   );

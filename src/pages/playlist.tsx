@@ -23,6 +23,18 @@ const Home: NextPage = () => {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  const bpmQuery = typeof router.query.bpm === 'object' ? router.query.bpm[0] : router.query.bpm;
+  const bpm = bpmQuery != null ? parseInt(bpmQuery) : undefined;
+
+  const sortedTracks = tracks?.sort((x, y) => {
+    if (bpm == null) return 0;
+    if (x.tempo == null && y.tempo == null) return 0;
+    if (x.tempo != null && y.tempo == null) return -1;
+    if (x.tempo == null && y.tempo != null) return 1;
+
+    return Math.abs((x.tempo as number) - bpm) - Math.abs((y.tempo as number) - bpm);
+  });
+
   const goBackToMeasurement = () => {
     router.push(`/`).catch((err) => {
       console.error(err);
@@ -83,7 +95,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <PlaylistHeader bpm={120} onClose={() => goBackToMeasurement()} className="fixed inset-x-0 top-0" />
+      <PlaylistHeader bpm={bpm} onClose={() => goBackToMeasurement()} className="fixed inset-x-0 top-0" />
       <div className="flex flex-col items-center gap-y-48 pt-174">
         <div className="flex w-216 items-center justify-between">
           <SkipButton direction="prev" onClick={() => skip(-1)} />
@@ -105,11 +117,12 @@ const Home: NextPage = () => {
           <SkipButton direction="next" onClick={() => skip(1)} />
         </div>
         <ol className="row-auto grid w-full justify-center px-16">
-          {tracks?.map(({ track }, i) => {
+          {sortedTracks?.map(({ track, tempo }, i) => {
             const song: PlaylistRowSong = {
               name: track.name,
               artistName: track.artists.map((a) => a.name).join(', '),
               seconds: track.duration_ms / 1000,
+              tempo,
             };
             return (
               <li key={track.id} className="w-[calc(100vw-1rem*2)] max-w-700">
