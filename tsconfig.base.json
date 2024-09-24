@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"plugins": [{ "name": "next" }],
+
+		"paths": {
+			"#/*": ["./src/*"]
+		},
+		"outDir": "node_modules/.tmp",
+		"noEmit": true,
+
+		"allowJs": true,
+		"checkJs": false,
+		"incremental": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"verbatimModuleSyntax": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true
+	}
+}

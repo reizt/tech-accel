@@ -1,18 +1,18 @@
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SkipButton } from './SkipButton';
 
 export default {
-  component: SkipButton,
-} as ComponentMeta<typeof SkipButton>;
+	component: SkipButton,
+} as Meta<typeof SkipButton>;
 
-export const Prev: ComponentStoryObj<typeof SkipButton> = {
-  args: {
-    direction: 'prev',
-  },
+export const Prev: StoryObj<typeof SkipButton> = {
+	args: {
+		direction: 'prev',
+	},
 };
 
-export const Next: ComponentStoryObj<typeof SkipButton> = {
-  args: {
-    direction: 'next',
-  },
+export const Next: StoryObj<typeof SkipButton> = {
+	args: {
+		direction: 'next',
+	},
 };

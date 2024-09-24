@@ -1,12 +1,12 @@
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LoginButton } from './LoginButton';
 
 export default {
-  component: LoginButton,
-} as ComponentMeta<typeof LoginButton>;
+	component: LoginButton,
+} as Meta<typeof LoginButton>;
 
-export const Default: ComponentStoryObj<typeof LoginButton> = {
-  args: {
-    className: 'w-320',
-  },
+export const Default: StoryObj<typeof LoginButton> = {
+	args: {
+		className: 'w-320',
+	},
 };

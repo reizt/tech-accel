@@ -1,12 +1,12 @@
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { PlaylistHeader } from './PlaylistHeader';
 
 export default {
-  component: PlaylistHeader,
-} as ComponentMeta<typeof PlaylistHeader>;
+	component: PlaylistHeader,
+} as Meta<typeof PlaylistHeader>;
 
-export const Default: ComponentStoryObj<typeof PlaylistHeader> = {
-  args: {
-    bpm: 120,
-  },
+export const Default: StoryObj<typeof PlaylistHeader> = {
+	args: {
+		bpm: 120,
+	},
 };

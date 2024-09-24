@@ -1,0 +1,72 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"files": {
+		"include": ["**/*"],
+		"ignore": ["node_modules", ".wrangler", ".vercel", ".next", "storybook-static", ".vscode", "tmp"]
+	},
+	"formatter": {
+		"indentStyle": "tab",
+		"lineWidth": 120
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	},
+	"linter": {
+		"rules": {
+			"all": true,
+			"style": {
+				"noDefaultExport": "off",
+				"useNamingConvention": "off",
+				"noNamespace": "off",
+				"noParameterProperties": "off",
+				"useBlockStatements": "off",
+				"noNonNullAssertion": "off",
+				"useFilenamingConvention": "off",
+				"useSelfClosingElements": "off",
+				"noImplicitBoolean": "off",
+				"noNamespaceImport": "off"
+			},
+			"performance": {
+				"noBarrelFile": "off",
+				"noReExportAll": "off",
+				"useTopLevelRegex": "off"
+			},
+			"correctness": {
+				"noUndeclaredVariables": "off",
+				"noUnusedVariables": "off",
+				"noNodejsModules": "off",
+				"noEmptyPattern": "off",
+				"useImportExtensions": "off",
+				"noUnusedFunctionParameters": "off",
+				"noUnknownFunction": "off",
+				"noUndeclaredDependencies": "off"
+			},
+			"suspicious": {
+				"useAwait": "off",
+				"noConsoleLog": "off",
+				"noExplicitAny": "off",
+				"noEmptyBlockStatements": "off",
+				"noReactSpecificProps": "off",
+				"noConsole": "off",
+				"useErrorMessage": "off"
+			},
+			"complexity": {
+				"noBannedTypes": "off",
+				"noExcessiveCognitiveComplexity": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off",
+				"useMediaCaption": "off",
+				"useAltText": "off"
+			}
+		}
+	}
+}

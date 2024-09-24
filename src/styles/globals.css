@@ -4,16 +4,16 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  background-color: #eff2f5;
+	padding: 0;
+	margin: 0;
+	background-color: #eff2f5;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lefthook
+pre-commit:
+  parallel: true
+  commands:
+    check:
+      glob: '*'
+      run: pnpm run check
+      exclude: '*.md'

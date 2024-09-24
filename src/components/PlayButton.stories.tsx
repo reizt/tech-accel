@@ -1,18 +1,18 @@
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { PlayButton } from './PlayButton';
 
 export default {
-  component: PlayButton,
-} as ComponentMeta<typeof PlayButton>;
+	component: PlayButton,
+} as Meta<typeof PlayButton>;
 
-export const NotPlaying: ComponentStoryObj<typeof PlayButton> = {
-  args: {
-    playing: false,
-  },
+export const NotPlaying: StoryObj<typeof PlayButton> = {
+	args: {
+		playing: false,
+	},
 };
 
-export const Playing: ComponentStoryObj<typeof PlayButton> = {
-  args: {
-    playing: true,
-  },
+export const Playing: StoryObj<typeof PlayButton> = {
+	args: {
+		playing: true,
+	},
 };
